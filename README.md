@@ -1,5 +1,6 @@
 # analysis_container
 git clone http://github.com/mshow34jt/analysis_container
+
 cd analysis_container
 docker build -t analysis:v1 .
 docker save analysis:v1 >analysisv1.tar
