@@ -4,7 +4,7 @@ git clone http://github.com/mshow34jt/analysis_container
 cd analysis_container
 docker build -t analysis:v1 .
 docker save analysis:v1 >analysisv1.tar
-singularity build --sandbox analysis.sif docker-archive://analysisv1.tar
+singularity build analysis.sif docker-archive://analysisv1.tar
 
 Move the file to the desired host, and there run…
 
