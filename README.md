@@ -6,6 +6,10 @@ docker build -t analysis:v1 .
 docker save analysis:v1 >analysisv1.tar
 singularity build analysis.sif docker-archive://analysisv1.tar
 
+
+alternatively build without docker requires root or fakeroot setup
+ singularity build --fakeroot analysis.sif Singularity.def
+
 Move the file to the desired host, and there run…
 
 singularity instance start --bind  /storage/nvme0n1/ncsa/eclipse/store_function_csv/spool/:/data/ldms --bind /storage/slurm/eclipse/spool-bitzer/job_detail:/data/slurm --bind /etc/localtime:/etc/localtime --bind /storage/nvme0n1/ncsa/log:/data/log analysis.sif analysis
