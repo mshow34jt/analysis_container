@@ -30,6 +30,8 @@ COPY --from=build /source/LDMSparsers/src/parse_procnetdev/parse_procnetdev.pl  
 COPY --from=build /source/LDMSparsers/src/parse_procstat_72/parse_procstat_72.pl   /jobmon/bin
 COPY --from=build /source/LDMSparsers/src/parse_gw_sysclassib/parse_gw_sysclassib.pl  /jobmon/bin
 COPY --from=build /source/LDMSparsers/src/parse_loadavg/parse_loadavg.pl  /jobmon/bin
+COPY --from=build /source/LDMSparsers/src/parse_lnet_stats/parse_lnet_stats.pl  /jobmon/bin
+COPY --from=build /source/LDMSparsers/src/parse_procnet/parse_procnet.pl  /jobmon/bin
 COPY --from=build /source/jobmon/bin/* /jobmon/bin/
 
 COPY --from=build /source/jobmon/util/cron /etc/cron.d/ingest_cron
