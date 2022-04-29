@@ -3,7 +3,13 @@ git clone http://github.com/mshow34jt/analysis_container
 
 cd analysis_container
 docker build -t analysis:v1 .
+
+execute with:  
+docker run --rm -d --network host --name analysis -v $PWD/log:/data/log  -v $PWD/ldms:/data/ldms    -v $PWD/slurm:/data/slurm     analysis:v1
+
+To proceed with Singularity:
 docker save analysis:v1 >analysisv1.tar
+
 singularity build analysis.sif docker-archive://analysisv1.tar
 
 
