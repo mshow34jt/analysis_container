@@ -22,7 +22,6 @@ RUN yum install -y mariadb-libs perl "perl(DBD::mysql)" perl-Thread-Queue && \
 COPY --from=build /source/LDMSparsers/src/parse_slurm/parse_slurm /jobmon/bin
 COPY --from=build /source/LDMSparsers/src/vinsert/vinsert.pl  /jobmon/bin
 COPY --from=build /source/LDMSparsers/src/parse_meminfo/parse_meminfo.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/jcc/jcc.pl  /jobmon/bin
 COPY --from=build /source/LDMSparsers/src/parse_opa2/parse_opa2.pl  /jobmon/bin
 COPY --from=build /source/LDMSparsers/src/parse_lustre_client/parse_lustre_client.pl  /jobmon/bin
 COPY --from=build /source/LDMSparsers/src/parse_procnfs/parse_procnfs.pl  /jobmon/bin
