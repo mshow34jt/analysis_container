@@ -25,5 +25,11 @@ singularity build --fakeroot analysis.sif Singularity.def
 
 singularity instance start --bind  /storage/nvme0n1/ncsa/eclipse/store_function_csv/spool/:/data/ldms --bind /storage/slurm/eclipse/spool-bitzer/job_detail:/data/slurm --bind /etc/localtime:/etc/localtime --bind /storage/nvme0n1/ncsa/log:/data/log analysis.sif analysis  
 
-singularity run instance://analysis /jobmon/bin/init.sh  
+The first time the container is started, you will need to prime the database with test data and metadata for the metrics  
+I do it interactively with singularity shell instance://analysis  
+cat tests.csv |./inserttests.pl  
+cat eclipse_md.csv |./insertmd.pl
+exit
+
+singularity run instance://analysis /jobmon/bin/init.sh & 
 
