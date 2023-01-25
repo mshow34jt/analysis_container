@@ -19,18 +19,18 @@ RUN yum install -y mariadb-libs perl "perl(DBD::mysql)" perl-Thread-Queue && \
     mkdir -p /jobmon/bin && \
     yum clean all
 
-COPY --from=build /source/LDMSparsers/src/parse_slurm/parse_slurm /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/vinsert/vinsert.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_meminfo/parse_meminfo.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_opa2/parse_opa2.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_lustre_client/parse_lustre_client.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_procnfs/parse_procnfs.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_procnetdev/parse_procnetdev.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_procstat_72/parse_procstat_72.pl   /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_gw_sysclassib/parse_gw_sysclassib.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_loadavg/parse_loadavg.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_lnet_stats/parse_lnet_stats.pl  /jobmon/bin
-COPY --from=build /source/LDMSparsers/src/parse_procnet/parse_procnet.pl  /jobmon/bin
+COPY --from=build /source/LDMSparsers/src/parse_slurm/parse_slurm /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/vinsert/vinsert.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_meminfo/parse_meminfo.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_opa2/parse_opa2.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_lustre_client/parse_lustre_client.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_procnfs/parse_procnfs.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_procnetdev/parse_procnetdev.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_procstat_72/parse_procstat_72.pl   /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_gw_sysclassib/parse_gw_sysclassib.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_loadavg/parse_loadavg.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_lnet_stats/parse_lnet_stats.pl  /jobmon/bin/
+COPY --from=build /source/LDMSparsers/src/parse_procnet/parse_procnet.pl  /jobmon/bin/
 COPY --from=build /source/jobmon/bin/* /jobmon/bin/
 
 COPY --from=build /source/jobmon/util/cron /etc/cron.d/ingest_cron
