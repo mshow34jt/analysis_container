@@ -3,7 +3,7 @@ From: centos:7
 Stage: build
 
 %post
-http_proxy=http://user:nopass@proxy.sandia.gov:80/ && \
+# insert http_proxy=http://<url>/ && \
 yum update -y && yum install -y gcc make && \
 yum install -y mariadb-libs \
 mysql-devel \
@@ -25,7 +25,7 @@ From: centos:7
 Stage: runner
 
 %files from build
-/source/jobmon/bin/ /jobmon/
+/source/jobmon/bin/ /jobmon/bin
 /source/LDMSparsers/src/parse_slurm/parse_slurm /jobmon/bin/
 /source/LDMSparsers/src/vinsert/vinsert.pl /jobmon/bin/
 /source/LDMSparsers/src/parse_meminfo/parse_meminfo.pl /jobmon/bin/
